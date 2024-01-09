@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./home.css";
 import Table from "../../Table/Table";
 
-
 const Home: React.FC = () => {
-return(
-    <div id="home">
-         <Table />
-    </div>
-);
+    return (
+        <div id="home">
+            <Table />
+        </div>
+    );
 }
 
 export default Home;

@@ -15,7 +15,7 @@ export default function Header() {
                         <Navbar />
                         <Routes>
                             <Route path="/" element={<Home />} />
-                            <Route path="/card" element={<Cards />} />
+                            <Route path="/cards" element={<Cards />} />
                         </Routes>
                     </Router>
                 </div>

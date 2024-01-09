@@ -1,36 +1,27 @@
-import { FC, memo, useEffect, useState } from "react";
+import { FC, memo } from "react";
 import { ThemeProvider } from "../theme/Theme";
 
 interface iPost {
   userId:number;
   id: number;
   title: string;
-  body: string;
 }
 
-const Body: FC<{}> = () => {
-  const [data, setData] = useState<iPost[]>([]);
+interface iTablaProps {
+  posts: iPost[];
+}
 
-  useEffect(() => {
-    console.log("Tabla Actualizada/Renderizada");
-  });
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => setData(data));
-  }, []);
+const Body: FC<iTablaProps> = ({posts}) => {
 
   return (
     <>
-      {data?.map((person) => {
+      {posts.map((post) => {
         return (
           <ThemeProvider>
-            <tr>
-              <td id="id">{person.id}</td>
-              <td id="id">{person.userId}</td>
-              <td id="title">{person.title}</td>
-              {/* <td>{person.body}</td> */}
+            <tr key={post.id}>
+              <td id="id">{post.id}</td>
+              <td id="id">{post.userId}</td>
+              <td id="title">{post.title}</td>
             </tr>
           </ThemeProvider>
         );
