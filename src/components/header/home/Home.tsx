@@ -1,10 +1,12 @@
 import React from "react";
 import "./home.css";
+import Table from "../../Table/Table";
+
 
 const Home: React.FC = () => {
 return(
     <div id="home">
-        <h2>Home</h2>
+         <Table />
     </div>
 );
 }

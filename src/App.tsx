@@ -2,7 +2,6 @@ import "./styles.css"
 import React from "react";
 import { ThemeProvider, useTheme } from "./components/theme/Theme";
 import Header from "./components/header/Header";
-import Title from "./components/title/Title";
 
 const App: React.FC = () => {
 
@@ -11,7 +10,7 @@ const App: React.FC = () => {
       <div>
         <Header />
         <div>
-          <Title />
+         
         </div>
       </div>
     </ThemeProvider>
