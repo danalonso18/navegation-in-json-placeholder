@@ -1,0 +1,40 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-weight: bold;
+}
+
+#navbar{
+    background-color: #505050;
+}
+
+#logo{
+    color: white;
+    font-size: 26px;
+}
+
+ul, li{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+#link{
+    color: white;
+    text-decoration: none;
+}
+
+#search{
+    border-radius: 8px;
+    padding: 2px;
+}
+
+#btnSearch{
+    border-radius: 8px;
+    padding: 1px;
+    margin: 5px;
+}

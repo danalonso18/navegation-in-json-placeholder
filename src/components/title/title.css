@@ -1,0 +1,13 @@
+#container{
+    border: 1px solid steelblue;
+    width: 50vw;
+    height: 50vh;
+    padding: 10px;
+    text-align: justify;
+}
+
+h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

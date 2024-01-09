@@ -1,8 +1,21 @@
+import "./styles.css"
+import React from "react";
+import { ThemeProvider, useTheme } from "./components/theme/Theme";
+import Header from "./components/header/Header";
+import Title from "./components/title/Title";
 
-export default function App() {
+const App: React.FC = () => {
+
   return (
-    <div id="container">
-        <h1>JSON Placeholder</h1>
-    </div>
+    <ThemeProvider>
+      <div>
+        <Header />
+        <div>
+          <Title />
+        </div>
+      </div>
+    </ThemeProvider>
   );
-}
+};
+
+export default App;
