@@ -10,7 +10,7 @@ const App: React.FC = () => {
       <div>
         <Header />
         <div>
-         
+
         </div>
       </div>
     </ThemeProvider>

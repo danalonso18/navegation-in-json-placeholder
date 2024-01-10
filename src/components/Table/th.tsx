@@ -1,15 +1,12 @@
-import { FC, memo} from "react";
+import { FC, memo } from "react";
 
 const TH: FC<{}> = () => {
   return (
-    <>
-      <tr id="titles">
-        <th>ID</th>
-        <th>USER ID</th>
-        <th>TITLE</th>
-        {/* <th>BODY</th> */}
-      </tr>
-    </>
+    <tr id="titles">
+      <th>ID</th>
+      <th>USER ID</th>
+      <th>TITLE</th>
+    </tr>
   );
 };
 

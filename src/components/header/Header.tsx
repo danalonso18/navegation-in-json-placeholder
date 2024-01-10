@@ -13,7 +13,6 @@ export default function Header() {
             <header>
                 <div id="header">
                     <SearchProvider>
-
                         <Router>
                             <Navbar />
                             <Routes>
@@ -21,7 +20,6 @@ export default function Header() {
                                 <Route path="/cards" element={<Cards />} />
                             </Routes>
                         </Router>
-                    
                     </SearchProvider>
                 </div>
             </header>

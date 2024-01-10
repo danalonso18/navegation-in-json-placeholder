@@ -17,7 +17,7 @@ const Table: FC<{}> = () => {
   const handleData = (data: iPost[]) => {
     setPosts(data);
   };
-  
+
   const filteredPosts = posts.filter((post) =>
     post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
