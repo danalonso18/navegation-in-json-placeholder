@@ -2,15 +2,15 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     padding-left: 3%;
     padding-right: 3%;
     font-weight: bold;
 }
 
 #navbar{
-    background-color: #505050;
+    background-color: #5490be;
 }
 
 #logo{
@@ -30,11 +30,11 @@ ul, li{
 
 #search{
     border-radius: 8px;
-    padding: 2px;
+    padding: 5px;
 }
 
 #btnSearch{
     border-radius: 8px;
-    padding: 1px;
+    padding: 5px;
     margin: 5px;
 }

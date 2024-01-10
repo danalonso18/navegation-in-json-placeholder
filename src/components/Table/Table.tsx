@@ -12,10 +12,22 @@ interface iPost {
 const Table: FC<{}> = () => {
 
   const [posts, setPosts] = useState<iPost[]>([]);
+  const [search, setSearch] = useState<string>("");
+  const [filterPosts, setFilterPosts] = useState<iPost[]>([]);
+
+
 
   const handleData = (data: iPost[]) => {
     setPosts(data);
+    setFilterPosts(data);
   };
+
+  useEffect(() => {
+    const filteredData = posts.filter((post) =>
+      post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+    );
+    setFilterPosts(filteredData)
+  }, [search, posts]);
 
   return (
     <div id="table">
@@ -25,7 +37,7 @@ const Table: FC<{}> = () => {
         </thead>
         <tbody>
           <Data onData={handleData} />
-          <Body posts={posts} />
+          <Body posts={filterPosts} />
         </tbody>
       </table>
     </div>
