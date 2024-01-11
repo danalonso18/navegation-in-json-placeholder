@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./cards.css";
-import Card from "./Card";
-import Data from "../../Data";
-import { useSearch } from "../../searchContext/SearchContext";
+import "../../styles/cards.css";
+import Card from "../../pages/Card";
+import Data from "../Data";
+import { useSearch } from "../searchContext/SearchContext";
 
 
 interface iPost {

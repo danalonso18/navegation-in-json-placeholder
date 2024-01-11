@@ -1,6 +1,5 @@
-import React, { useState } from "react";
-import "./home.css";
-import Table from "../../Table/Table";
+import "../styles/home.css";
+import Table from "../components/Table/Table";
 
 const Home: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
 import React, { memo } from "react";
-import "./cards.css";
-import { ThemeProvider } from "../../theme/Theme";
+import "../styles/cards.css";
+import { ThemeProvider } from "../components/theme/Theme";
 
 interface iPost {
     id: number;

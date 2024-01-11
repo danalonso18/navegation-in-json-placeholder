@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
-import "./navbar.css"
-import ToggleButton from "../../button/Button";
-import { useSearch } from "../../searchContext/SearchContext";
+import "../../styles/navbar.css"
+import ToggleButton from "../../components/button/Button";
+import { useSearch } from "../../components/searchContext/SearchContext";
 
 const Navbar: React.FC = () => {
     const { search, setSearch } = useSearch();
@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     }
 
     return (
-        <div id="navbar">
+        <header id="navbar">
             <nav>
                 <h1 id="logo">JSON Placeholder</h1>
                 <div id="divSearch">
@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
                     <li id="link"><ToggleButton /></li>
                 </ul>
             </nav>
-        </div>
+        </header>
     );
 }
 
