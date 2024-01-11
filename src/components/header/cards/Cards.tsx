@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./cards.css";
-import Card from "./cards/Cards";
+import Card from "./cards/Card";
 import Data from "../../Data";
 
 interface iPost {
