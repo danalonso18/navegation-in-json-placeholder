@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom"
 import "./navbar.css"
 import ToggleButton from "../../button/Button";
+import { useSearch } from "../../searchContext/SearchContext";
 
 const Navbar: React.FC = () => {
-const [search, setSearch] = useState<string>('');
+    const { search, setSearch } = useSearch();
 
-const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value)
-    console.log('Search', search);
-}
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value)
+        console.log('Search', search);
+    }
 
     return (
         <div id="navbar">
@@ -17,8 +18,7 @@ const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
                 <h1 id="logo">JSON Placeholder</h1>
                 <div id="divSearch">
                     <form role="search">
-                        <input type="search" id="search" placeholder="Busqueda" value={search} onChange={handleSearchChange}/>
-                        {/* <button type="submit" id="btnSearch">Search</button> */}
+                        <input type="text" id="search" placeholder="Busqueda" value={search} onChange={handleSearchChange} />
                     </form>
                 </div>
                 <ul>

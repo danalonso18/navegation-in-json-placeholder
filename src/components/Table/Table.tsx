@@ -2,6 +2,7 @@ import { FC, memo, useEffect, useState } from "react";
 import Body from "./body";
 import TH from "./th";
 import Data from "../Data";
+import { useSearch } from "../searchContext/SearchContext";
 
 interface iPost {
   userId: number;
@@ -10,24 +11,17 @@ interface iPost {
 }
 
 const Table: FC<{}> = () => {
-
+  const { search } = useSearch();
   const [posts, setPosts] = useState<iPost[]>([]);
-  const [search, setSearch] = useState<string>("");
-  const [filterPosts, setFilterPosts] = useState<iPost[]>([]);
-
-
 
   const handleData = (data: iPost[]) => {
     setPosts(data);
-    setFilterPosts(data);
   };
 
-  useEffect(() => {
-    const filteredData = posts.filter((post) =>
-      post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-    );
-    setFilterPosts(filteredData)
-  }, [search, posts]);
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  );
+
 
   return (
     <div id="table">
@@ -37,7 +31,7 @@ const Table: FC<{}> = () => {
         </thead>
         <tbody>
           <Data onData={handleData} />
-          <Body posts={filterPosts} />
+          <Body posts={filteredPosts} />
         </tbody>
       </table>
     </div>

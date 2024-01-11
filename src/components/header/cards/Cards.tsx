@@ -1,38 +1,36 @@
 import React, { useEffect, useState } from "react";
 import "./cards.css";
-import Card from "./cards/Card";
+import Card from "./Card";
 import Data from "../../Data";
+import { useSearch } from "../../searchContext/SearchContext";
+
 
 interface iPost {
-    userId:number;
-    id: number;
-    title: string;
-    body: string;
-  }
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
 
 const Cards: React.FC = () => {
-        const [ posts, setPosts ] = useState<iPost[]>([]);
-        const [search, setSearch] = useState<string>("");
-        const [filterPosts, setFilterPosts] = useState<iPost[]>([]);
-      
-        const handleData = (data: iPost[]) => {
-            setPosts(data);
-            setFilterPosts(data);
-          };
-        
-          useEffect(() => {
-            const filteredData = posts.filter((post) =>
-              post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-            );
-            setFilterPosts(filteredData)
-          }, [search, posts]);
+  const { search } = useSearch();
+  const [posts, setPosts] = useState<iPost[]>([]);
 
-return(
+  const handleData = (data: iPost[]) => {
+    setPosts(data);
+  };
+
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
+    post.body.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+  );
+
+  return (
     <div id="cards">
-        <Data onData={handleData} />
-        <Card posts={filterPosts}/>
+      <Data onData={handleData} />
+      <Card posts={filteredPosts} />
     </div>
-);
+  );
 }
 
 export default Cards;

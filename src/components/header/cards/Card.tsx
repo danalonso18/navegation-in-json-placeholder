@@ -1,6 +1,6 @@
 import React, { memo } from "react";
-import "./card.css";
-import { ThemeProvider } from "../../../theme/Theme";
+import "./cards.css";
+import { ThemeProvider } from "../../theme/Theme";
 
 interface iPost {
     id: number;
@@ -20,9 +20,14 @@ const Card: React.FC<iCards> = ({ posts }) => {
                     <ThemeProvider>
                         <div id="containerCard">
                             <div key={post.id}>
-                                <h3>{post.title}</h3>
-                                <br />
-                                <p>{post.body}</p>
+                                <div id="info">
+                                    <h3>{post.title}</h3>
+                                    <br />
+                                    <p>{post.body}</p>
+                                </div>
+                                <div id="footerCard">
+                                    <h5>{post.id}</h5>
+                                </div>
                             </div>
                         </div>
                     </ThemeProvider>

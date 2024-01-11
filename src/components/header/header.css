@@ -1,9 +1,9 @@
-#header{
+#header {
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
 
-nav{
+nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -12,12 +12,13 @@ nav{
     font-weight: bold;
 }
 
-#logo{
+#logo {
     color: steelblue;
     font-size: 30px;
 }
 
-ul, li{
+ul,
+li {
     display: inline-block;
     padding: 0px 20px;
 }

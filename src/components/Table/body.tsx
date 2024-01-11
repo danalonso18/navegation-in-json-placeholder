@@ -2,7 +2,7 @@ import { FC, memo } from "react";
 import { ThemeProvider } from "../theme/Theme";
 
 interface iPost {
-  userId:number;
+  userId: number;
   id: number;
   title: string;
 }
@@ -11,13 +11,13 @@ interface iTablaProps {
   posts: iPost[];
 }
 
-const Body: FC<iTablaProps> = ({posts}) => {
+const Body: FC<iTablaProps> = ({ posts }) => {
 
   return (
     <>
       {posts.map((post) => {
         return (
-          <ThemeProvider>
+          <ThemeProvider key={post.id}>
             <tr key={post.id}>
               <td id="id">{post.id}</td>
               <td id="id">{post.userId}</td>
