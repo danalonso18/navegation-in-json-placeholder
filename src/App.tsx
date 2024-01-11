@@ -15,10 +15,12 @@ import Home from "./pages/Home";
 import Cards from "./components/cards/Cards";
 import { FirstAppLayout } from "./layouts/AppLayout/FirstAppLayout";
 import { AppLayout } from "./layouts/AppLayout/AppLayout";
+import { SearchProvider } from "./components/searchContext/SearchContext";
 
 const App: React.FC = () => {
   return (
     <BrowserRouter>
+    <SearchProvider>
       <ThemeProvider>
         <AuthProvider>
           <Routes>
@@ -36,6 +38,7 @@ const App: React.FC = () => {
           </Routes>
         </AuthProvider>
       </ThemeProvider>
+    </SearchProvider>
     </BrowserRouter>
   );
 };

@@ -3,6 +3,7 @@ import Body from "./body";
 import TH from "./th";
 import Data from "../Data";
 import { useSearch } from "../searchContext/SearchContext";
+import { ThemeProvider } from "../theme/Theme";
 
 interface iPost {
   userId: number;
@@ -22,19 +23,18 @@ const Table: FC<{}> = () => {
     post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
 
-
   return (
-    <div id="table">
-      <table>
-        <thead>
-          <TH />
-        </thead>
-        <tbody>
-          <Data onData={handleData} />
-          <Body posts={filteredPosts} />
-        </tbody>
-      </table>
-    </div>
+      <div id="table">
+        <table>
+          <thead>
+            <TH />
+          </thead>
+          <tbody>
+            <Data onData={handleData} />
+            <Body posts={filteredPosts} />
+          </tbody>
+        </table>
+      </div>
   );
 };
 
