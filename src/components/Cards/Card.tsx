@@ -1,6 +1,7 @@
-import React, { memo } from "react";
-import "../styles/cards.css";
-import { ThemeProvider } from "../components/theme/Theme";
+import React from "react";
+import { memo } from "react";
+import "../../styles/cards.css";
+import { ThemeProvider } from "../../context/themeContext/Theme";
 
 interface iPost {
     id: number;

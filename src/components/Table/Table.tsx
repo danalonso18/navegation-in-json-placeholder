@@ -1,9 +1,9 @@
 import { FC, memo, useEffect, useState } from "react";
-import Body from "./body";
-import TH from "./th";
+import Body from "./Body";
+import TH from "./Th";
 import Data from "../Data";
-import { useSearch } from "../searchContext/SearchContext";
-import { ThemeProvider } from "../theme/Theme";
+import { useSearch } from "../../context/searchContext/SearchContext";
+import { ThemeProvider } from "../../context/themeContext/Theme";
 
 interface iPost {
   userId: number;

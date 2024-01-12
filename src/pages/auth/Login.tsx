@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../components/context/AuthContext";
+import { useAuthContext } from "../../context/authContext/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/login.css";
+import "../../styles/login.css";
 
 const Login: React.FC = () => {
-  const { login, isAuthenticated, loginError } = useAuth();
+  const { login, isAuthenticated, loginError } = useAuthContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ const Login: React.FC = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/auth");
+      navigate("/app/home");
     }
   }, [isAuthenticated, navigate]);
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../components/context/AuthContext';
-import "../styles/register.css"
+import { useAuthContext } from '../../context/authContext/AuthContext';
+import "../../styles/register.css"
 
 interface iUser {
     username: string;
@@ -9,7 +9,7 @@ interface iUser {
 }
 
 const RegistrationForm: React.FC = () => {
-    const { login } = useAuth();
+    const { login } = useAuthContext();
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [users, setUsers] = useState<iUser[]>([]);
@@ -17,7 +17,7 @@ const RegistrationForm: React.FC = () => {
 
 
     useEffect(() => {
-        const storedUsers = localStorage.getItem('users');
+        const storedUsers = localStorage.getItem("users");
         if (storedUsers) {
             setUsers(JSON.parse(storedUsers));
         }
@@ -37,7 +37,7 @@ const RegistrationForm: React.FC = () => {
             setUsername('');
             setPassword('');
 
-            navigate('/');
+            navigate('/login');
         }
     };
 
@@ -58,11 +58,11 @@ const RegistrationForm: React.FC = () => {
                             <br />
                         </div>
 
+                    </div>
+                </form>
                         <div className="btnRegister">
                             <button type="button" onClick={handleRegister}>Registrar</button>
                         </div>
-                    </div>
-                </form>
                 <div>
                     <h3>Usuarios registrados:</h3>
                     <ul>
@@ -73,7 +73,7 @@ const RegistrationForm: React.FC = () => {
                         ))}
                     </ul>
                 </div>
-                <p className='home'><Link to="/">Volver al Login</Link></p>
+                <p className='home'><Link to="/login">Volver al Login</Link></p>
             </div>
         </div>
     );

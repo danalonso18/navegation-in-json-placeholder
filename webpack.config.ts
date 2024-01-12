@@ -38,6 +38,7 @@ const config /*: Configuration */ = {
       directory: path.join(__dirname, "./dist/index.html"),
     },
     port: 3000,
+    historyApiFallback:true,
   },
 };
 

@@ -1,5 +1,5 @@
 import { FC, memo } from "react";
-import { ThemeProvider } from "../theme/Theme";
+import { ThemeProvider } from "../../context/themeContext/Theme";
 
 interface iPost {
   userId: number;

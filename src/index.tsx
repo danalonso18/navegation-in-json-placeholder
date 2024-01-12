@@ -1,8 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import { ThemeProvider } from "./components/theme/Theme";
-ThemeProvider
+import { ThemeProvider } from "./context/themeContext/Theme";
+import { AuthProvider } from "./context/authContext/AuthContext";
+import { SearchProvider } from "./context/searchContext/SearchContext";
+
 
 const rootElement = document.getElementById("root");
 
@@ -11,8 +13,12 @@ const root = createRoot(rootElement!);
 
 root.render(
   <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <SearchProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </ThemeProvider>
+    </SearchProvider>
   </StrictMode>
 );
