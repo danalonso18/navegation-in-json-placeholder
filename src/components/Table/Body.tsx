@@ -14,7 +14,7 @@ const Body: FC<iTablaProps> = ({ posts }) => {
             <tr key={post.id}>
               <td id="id">{post.id}</td>
               <td id="id">{post.userId}</td>
-              <td id="title">{post.title}</td>
+              <td id="titleBody">{post.title}</td>
             </tr>
           </ThemeProvider>
         );

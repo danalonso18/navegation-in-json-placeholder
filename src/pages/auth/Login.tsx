@@ -54,11 +54,11 @@ const Login: React.FC = () => {
           </div>
         </form>
         <div className="btnLogin">
-          <button onClick={handleLogin}>Login</button>
+          <button id="bttnLogin" onClick={handleLogin}>Login</button>
         </div>
 
         <p>
-          <Link to="/registration">Registrarse</Link>
+          <Link id="linkRegis" to="/registration">Registrarse</Link>
         </p>
       </div>
     </div>
