@@ -1,18 +1,30 @@
-import React,{ReactNode} from "react";
+import {ReactNode} from "react";
 
-export interface iPost {
-    userId:number;
+export interface iPostApi {
+    userId: number;
+    id: number;
+    title: string;
+    body: string;
+}
+
+export interface iPostCard {
     id: number;
     title: string;
     body: string;
 }
 
 export interface iCards {
-    posts: iPost[];
+    posts: iPostCard[];
+}
+
+export interface iPostTable {
+    userId: number;
+    id: number;
+    title: string;
 }
 
 export interface iTablaProps {
-    posts: iPost[];
+    posts: iPostTable[];
 }
 
 export interface iUser {

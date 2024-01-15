@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,useState } from "react";
 import "../../styles/cards.css";
 import Card from "../../components/Cards/Card";
-import Data from "../../components/Data";
 import { useSearch } from "../../context/searchContext/SearchContext";
-import { iPost } from "../../interfaces/interfaces";
-
-
+import getPostApi from "../../api/posts";
+import { iPostCard } from "../../interfaces/interfaces";
 
 const Cards: React.FC = () => {
   const { search } = useSearch();
-  const [posts, setPosts] = useState<iPost[]>([]);
+  const [posts, setPosts] = useState<iPostCard[]>([]);
 
-  const handleData = (data: iPost[]) => {
-    setPosts(data);
-  };
+  useEffect(() => {
+    const data = async () => {
+      try {
+        const apiData = await getPostApi();
+        setPosts(apiData);
+      } catch (error) {
+        console.error("Error data:", error);
+      }
+    }
+    data();
+  }, []);
 
   const filteredPosts = posts.filter((post) =>
     post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase()) ||
@@ -22,11 +28,9 @@ const Cards: React.FC = () => {
 
   return (
     <div id="cards">
-      <Data onData={handleData} />
       <Card posts={filteredPosts} />
     </div>
   );
 }
 
 export default Cards;
-
