@@ -3,13 +3,8 @@ import Body from "./Body";
 import TH from "./Th";
 import Data from "../Data";
 import { useSearch } from "../../context/searchContext/SearchContext";
-import { ThemeProvider } from "../../context/themeContext/Theme";
+import { iPost } from "../../interfaces/interfaces";
 
-interface iPost {
-  userId: number;
-  id: number;
-  title: string;
-}
 
 const Table: FC<{}> = () => {
   const { search } = useSearch();

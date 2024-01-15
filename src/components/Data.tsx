@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
+import { iPost } from "../interfaces/interfaces";
 
-interface iPost {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
 
 const Data: React.FC<{ onData: (posts: iPost[]) => void }> = ({ onData }) => {
 

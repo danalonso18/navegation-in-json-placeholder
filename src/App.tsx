@@ -7,6 +7,7 @@ import Home from "./pages/app/Home";
 import Cards from "./pages/app/Cards";
 import { FirstAppLayout } from "./layouts/AppLayout/FirstAppLayout";
 import { AppLayout } from "./layouts/AppLayout/AppLayout";
+import PrivateRoute from "./routes/privates";
 
 const App: React.FC = () => {
   return (
@@ -18,10 +19,11 @@ const App: React.FC = () => {
           <Route path="*" element={<Navigate to="/login" />} />
         </Route>
 
-        <Route path="app/*" element={<AppLayout />}>
-          <Route path="home" element={<Home />} />
-          <Route path="cards" element={<Cards />} />
-          <Route path="*" element={<Navigate to="/app/home" />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="app" element={<AppLayout />}>
+            <Route path="home" element={<Home />} />
+            <Route path="cards" element={<Cards />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

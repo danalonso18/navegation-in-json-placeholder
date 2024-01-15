@@ -2,23 +2,17 @@ import React from "react";
 import { memo } from "react";
 import "../../styles/cards.css";
 import { ThemeProvider } from "../../context/themeContext/Theme";
+import { iCards } from "../../interfaces/interfaces";
 
-interface iPost {
-    id: number;
-    title: string;
-    body: string;
-}
 
-interface iCards {
-    posts: iPost[];
-}
+
 
 const Card: React.FC<iCards> = ({ posts }) => {
     return (
         <div id="cards">
             {posts.map((post) => {
                 return (
-                    <ThemeProvider>
+                    <ThemeProvider key={post.id}>
                         <div id="containerCard">
                             <div key={post.id}>
                                 <div id="info">

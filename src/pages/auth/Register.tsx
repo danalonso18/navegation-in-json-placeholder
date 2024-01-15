@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../context/authContext/AuthContext';
 import "../../styles/register.css"
+import { iUser } from '../../interfaces/interfaces';
 
-interface iUser {
-    username: string;
-    password: string;
-}
+
 
 const RegistrationForm: React.FC = () => {
     const { login } = useAuthContext();

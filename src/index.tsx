@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import { ThemeProvider } from "./context/themeContext/Theme";
-import { AuthProvider } from "./context/authContext/AuthContext";
+import { AuthProvider } from "./context/authContext/AuthProvider";
 import { SearchProvider } from "./context/searchContext/SearchContext";
 
 

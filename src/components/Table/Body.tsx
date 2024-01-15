@@ -1,15 +1,8 @@
 import { FC, memo } from "react";
 import { ThemeProvider } from "../../context/themeContext/Theme";
+import { iTablaProps } from "../../interfaces/interfaces";
 
-interface iPost {
-  userId: number;
-  id: number;
-  title: string;
-}
 
-interface iTablaProps {
-  posts: iPost[];
-}
 
 const Body: FC<iTablaProps> = ({ posts }) => {
 

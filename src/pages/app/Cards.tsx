@@ -3,14 +3,9 @@ import "../../styles/cards.css";
 import Card from "../../components/Cards/Card";
 import Data from "../../components/Data";
 import { useSearch } from "../../context/searchContext/SearchContext";
+import { iPost } from "../../interfaces/interfaces";
 
 
-interface iPost {
-  userId: number;
-  id: number;
-  title: string;
-  body: string;
-}
 
 const Cards: React.FC = () => {
   const { search } = useSearch();
