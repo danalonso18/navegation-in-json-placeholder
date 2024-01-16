@@ -6,6 +6,13 @@ table, tr, td, th {
     box-shadow: 2px 2px 2px rgb(195, 189, 189);
 }
 
+#heads{
+    justify-content: center;
+    align-items: center;
+    text-justify: center;
+    box-shadow: none;
+    text-transform: uppercase;
+}
 #table {
     height: auto;
     width: 80%;
@@ -15,20 +22,24 @@ table, tr, td, th {
     align-items: center;
     margin: 15px auto;
 }
+thead{
+    height: auto;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(176, 171, 171);
+    box-shadow: 1px 1px 1px black;
+    padding: 10px;
+    font-size: 25px;
+}
 
-#id {
+tbody{
+    height: auto;
+    width: 100%;
     text-align: center;
     background-color: rgb(176, 171, 171);
     box-shadow: 1px 1px 1px black;
     padding: 10px;
-}
-
-#titleBody {
-    background-color: rgb(176, 171, 171);
-    box-shadow: 1px 1px 2px black;
-}
-
-#titles {
-    background-color: rgb(112, 106, 106);
-    font-size: 25px;
 }

@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { iAdmin } from "../../../interfaces/interfaces";
+import { iAdmin } from "../../interfaces/interfaces";
 
 type FormValues = {
   name: string;
@@ -12,7 +12,7 @@ type FormValues = {
 const FormAdm = () => {
   const form = useForm<FormValues>();
   const { register, handleSubmit } = form;
-
+  
   let datas: Array<iAdmin> = [];
   const onSubmit = (data: FormValues) => {
     datas.push(data);
@@ -69,28 +69,6 @@ const FormAdm = () => {
           </div>
           <button>Guardar</button>
         </form>
-      </div>
-      <div id="tableContainer">
-        <table>
-          <tr>
-            <th>Nombre</th>
-            <th>Primer Apellido</th>
-            <th>Segundo Apellido</th>
-            <th>Nombre de Usuario</th>
-            <th>Rol</th>
-          </tr>
-          {datas.map((dat) => {
-            return (
-              <tr>
-                <td>{dat.name}</td>
-                <td>{dat.secondName1}</td>
-                <td>{dat.secondName2}</td>
-                <td>{dat.userName}</td>
-                <td>{dat.rol}</td>
-              </tr>
-            );
-          })}
-        </table>
       </div>
     </main>
   );

@@ -51,3 +51,9 @@ export interface iAdmin{
     userName:string;
     rol:string
 }
+
+export interface iPropsTable {
+    data: any[];
+    columns: any[];
+   /* posts:any[]*/
+}
