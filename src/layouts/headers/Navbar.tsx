@@ -38,6 +38,7 @@ const Navbar: React.FC = () => {
         <ul>
           <li><Link id="link" to="home">Home</Link></li>
           <li><Link id="link" to="cards">Cards</Link></li>
+          <li><Link id="link" to="admin">Admin</Link></li>
           <li id="link" onClick={handleLogout}>Cerrar Sesion</li>
           <li id="link"><ToggleButton /></li>
         </ul>

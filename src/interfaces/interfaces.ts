@@ -43,3 +43,11 @@ export interface iAuthContextProps {
 export interface iChildren {
     children: ReactNode;
 }
+
+export interface iAdmin{
+    name:string;
+    secondName1:string;
+    secondName2:string;
+    userName:string;
+    rol:string
+}
