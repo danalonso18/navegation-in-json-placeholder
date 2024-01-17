@@ -1,7 +1,7 @@
 import React from "react";
 import { memo } from "react";
 import "../../styles/cards.css";
-import { ThemeProvider } from "../../context/themeContext/Theme";
+import { ThemeProvider } from "../../context/themeContext/ThemeProvider";
 import { iCards } from "../../interfaces/interfaces";
 
 

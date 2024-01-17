@@ -1,4 +1,5 @@
 import {ReactNode} from "react";
+import { FormValues } from "../context/adminContext/AdminProvider";
 
 export interface iPostApi {
     userId: number;
@@ -55,5 +56,10 @@ export interface iAdmin{
 export interface iPropsTable {
     data: any[];
     columns: any[];
-   /* posts:any[]*/
+}
+
+export interface iAdminContext {
+    roles:iAdmin[];
+    admin: iAdmin[];
+    onSubmit:(data:FormValues)=>void
 }

@@ -1,24 +1,12 @@
 import { useForm } from "react-hook-form";
-import { iAdmin } from "../../interfaces/interfaces";
+import { useAdminContext } from "../../context/adminContext/AdminContext";
+import { FormValues } from "../../context/adminContext/AdminProvider";
 
-type FormValues = {
-  name: string;
-  secondName1: string;
-  secondName2: string;
-  userName: string;
-  rol: string;
-};
 
-const FormAdm = () => {
+const FormAdm: React.FC = () => {
+  const { onSubmit } = useAdminContext();
   const form = useForm<FormValues>();
   const { register, handleSubmit } = form;
-  
-  let datas: Array<iAdmin> = [];
-  const onSubmit = (data: FormValues) => {
-    datas.push(data);
-    console.log(datas);
-    return datas;
-  };
 
   return (
     <main>

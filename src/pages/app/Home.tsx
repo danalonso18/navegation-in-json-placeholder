@@ -34,7 +34,7 @@ const Home: React.FC = () => {
 
   return (
       <div id="home">
-        <Table data={posts} columns={colums} /*posts={filteredPosts}*/ />
+        <Table data={filteredPosts} columns={colums} /*posts={filteredPosts}*/ />
       </div>
   );
 };

@@ -1,6 +1,6 @@
 
 table, tr, td, th {
-    border-radius: 2px;
+    border-radius: 5px;
     padding: 2px;
     border-spacing: 6px;
     box-shadow: 2px 2px 2px rgb(195, 189, 189);
@@ -12,6 +12,7 @@ table, tr, td, th {
     text-justify: center;
     box-shadow: none;
     text-transform: uppercase;
+    border-radius: 2px;
 }
 #table {
     height: auto;
@@ -25,12 +26,13 @@ table, tr, td, th {
 thead{
     height: auto;
     width: 100%;
+    border-radius: 10px;
     text-align: center;
     align-content: center;
     justify-content: center;
     align-items: center;
-    background-color: rgb(176, 171, 171);
-    box-shadow: 1px 1px 1px black;
+    background-color: rgba(12, 88, 136, 0.753);
+    box-shadow: 2px 2px 2px rgb(195, 189, 189);
     padding: 10px;
     font-size: 25px;
 }
@@ -39,7 +41,7 @@ tbody{
     height: auto;
     width: 100%;
     text-align: center;
-    background-color: rgb(176, 171, 171);
-    box-shadow: 1px 1px 1px black;
+    background-color: rgb(188, 184, 184);
+    box-shadow: 2px 2px 2px rgb(195, 189, 189);
     padding: 10px;
 }

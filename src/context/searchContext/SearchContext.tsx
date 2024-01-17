@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, createContext, useState } from "react";
+import React, { useContext, createContext} from "react";
 
 
 type SearchContextProps = {
@@ -6,22 +6,7 @@ type SearchContextProps = {
     setSearch: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const SearchContext = createContext<SearchContextProps | undefined>(undefined);
-
-type SearchProviderProps = {
-    children: ReactNode;
-}
-
-export const SearchProvider: React.FC<SearchProviderProps> = ({ children }) => {
-
-    const [search, setSearch] = useState('');
-
-    return (
-        <SearchContext.Provider value={{ search, setSearch }}>
-            {children}
-        </SearchContext.Provider>
-    );
-}
+export const SearchContext = createContext<SearchContextProps | undefined>(undefined);
 
 export const useSearch = () => {
     const context = useContext(SearchContext);

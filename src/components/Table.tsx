@@ -18,7 +18,6 @@ const Table: FC<iPropsTable> = ({ data, columns/*, posts*/}) => {
           </tr>
         </thead>
         <tbody>
-            {/* {posts} */}
           {data.map((row,index) => {
             return (
                 <tr key={index}>
