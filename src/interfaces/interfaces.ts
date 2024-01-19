@@ -56,10 +56,10 @@ export interface iAdmin{
 export interface iPropsTable {
     data: any[];
     columns: any[];
+    sortTable: (orderBy:string)=>void
 }
 
 export interface iAdminContext {
-    roles:iAdmin[];
-    admin: iAdmin[];
+    admins:iAdmin[];
     onSubmit:(data:FormValues)=>void
 }

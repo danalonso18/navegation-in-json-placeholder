@@ -59,7 +59,7 @@ const RegistrationForm: React.FC = () => {
                     </div>
                 </form>
                         <div className="btnRegister">
-                            <button type="button" onClick={handleRegister}>Registrar</button>
+                            <button id='bttonRegister' type="button" onClick={handleRegister}>Registrar</button>
                         </div>
                 <div>
                     <h3>Usuarios registrados:</h3>
@@ -71,7 +71,7 @@ const RegistrationForm: React.FC = () => {
                         ))}
                     </ul>
                 </div>
-                <p className='home'><Link to="/login">Volver al Login</Link></p>
+                <p className='home'><Link id='linkRegister' to="/login">Volver al Login</Link></p>
             </div>
         </div>
     );

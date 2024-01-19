@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { iAdmin, iChildren, iAdminContext } from "../../interfaces/interfaces";
 import { AdminContext } from "./AdminContext";
+import { useEffect } from "react";
 
 export type FormValues = {
   name: string;
@@ -11,12 +12,14 @@ export type FormValues = {
 };
 
 export const AdminProvider: React.FC<iChildren> = ({ children }) => {
-  const [admin, setAdmin] = useState<iAdmin[]>(() => {
-    const storedAdmin = localStorage.getItem("admin");
-    return storedAdmin ? JSON.parse(storedAdmin) : [];
-  });
-  const [roles, setRoles] = useState<iAdmin[]>([]);
   const [admins, setAdmins] = useState<iAdmin[]>([]);
+
+  useEffect(() => {
+    const storedAdmin = localStorage.getItem("admins");
+    if (storedAdmin) {
+        setAdmins(JSON.parse(storedAdmin));
+    }
+}, []);
 
   const onSubmit = (dat: FormValues) => {
     if (dat) {
@@ -24,15 +27,13 @@ export const AdminProvider: React.FC<iChildren> = ({ children }) => {
       const updateAdmin = [...admins, newAdmin];
 
       setAdmins(updateAdmin);
-      setRoles(updateAdmin);
 
       localStorage.setItem("admins", JSON.stringify(updateAdmin));
     }
   };
 
   const value: iAdminContext = {
-    roles,
-    admin,
+    admins,
     onSubmit,
   };
 
