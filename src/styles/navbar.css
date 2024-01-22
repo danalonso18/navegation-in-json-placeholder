@@ -38,3 +38,17 @@ ul, li{
     padding: 5px;
     margin: 5px;
 }
+
+/* #containerSearch{
+    display: flex;
+} */
+
+#pNotifications{
+    height: 30px;
+    width: 30px;
+    padding: 5px;
+    border-radius: 50%;
+    /* margin: 10px; */
+    background-color: rgb(229, 77, 77);
+    align-items: center;
+}

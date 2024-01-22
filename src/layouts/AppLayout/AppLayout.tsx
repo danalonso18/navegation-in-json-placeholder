@@ -1,7 +1,8 @@
+import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../headers/Navbar";
 
-export const AppLayout = () => {
+export const AppLayout: React.FC = () => {
   return (
     <main>
       <Navbar/>

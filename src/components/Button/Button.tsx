@@ -1,9 +1,9 @@
 import React from "react";
-import { useTheme } from "../theme/Theme";
-import "./button.css"
+import { useThemeContext } from "../../context/ThemeContext/ThemeContext";
+import "../../styles/button.css";
 
 const ToggleButton: React.FC = () => {
-  const { darkMode, toggleDarkMode } = useTheme();
+  const { darkMode, toggleDarkMode } = useThemeContext();
 
   return (
     <div id="divBtn">

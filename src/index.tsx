@@ -1,8 +1,12 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
-import { ThemeProvider } from "./components/theme/Theme";
-ThemeProvider
+import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext/AuthContextProvider";
+import { SearchProvider } from "./context/SearchContext/SearchContextProvider";
+import { ThemeProvider } from "./context/ThemeContext/ThemeContextProvider";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const rootElement = document.getElementById("root");
 
@@ -11,8 +15,16 @@ const root = createRoot(rootElement!);
 
 root.render(
   <StrictMode>
-    <ThemeProvider>
-      <App />
-    </ThemeProvider>
+    <Provider store={store}>
+      <SearchProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </AuthProvider>
+        </ThemeProvider>
+      </SearchProvider>
+    </Provider>
   </StrictMode>
 );

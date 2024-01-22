@@ -1,5 +1,5 @@
 import "../../styles/navbar.css"
-import ToggleButton from "../../components/button/Button";
+import ToggleButton from "../../components/Button/Button";
 
 const IniNavbar: React.FC = () => {
 

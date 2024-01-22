@@ -14,8 +14,10 @@
     border: 2px solid rgb(100, 161, 212);
     background-color: rgb(161, 196, 225);
     width: 50vw;
-    height: 50vh;
-    margin-top: 20px;
+    height: 70vh;
+    margin-top: 50px;
+    /*height: 55vh;
+    margin-top: 20px; */
 }
 
 .formContainer{
@@ -27,7 +29,7 @@
     border-radius: 8px;
     height: 35vh;
     width: 40vw;
-
+margin-top: 40px;
     
 }
 
@@ -36,16 +38,22 @@
     flex-direction: column;
     align-items: center;
     justify-content:end ;
-    height: 10vh;
+    height: 8vh;
     width: 40vw;
 }
 
 .username{
     margin: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(26, 136, 225);
+    font-size: 20px;
 }
 
 .password{
     margin: 20px;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(26, 136, 225);
+    font-size: 20px;
 }
 
 #username, #password {
@@ -53,11 +61,28 @@
     padding: 5px;
 }
 
-button{
-    background-color: rgb(151, 190, 151);
+#btnLogin{
+    background-color:#4a86b5;
     padding: 7px 13px;
     border-radius: 8px;
     margin: 10px;
     width: fit-content;
+    color: white;
+    border: 2px solid rgb(54, 114, 156);
+    box-shadow: 1px 1px 2px rgb(167, 167, 167);
+    text-shadow: 1px 1px 2px rgb(138, 190, 232);
+    font-size: 15px;
 }
 
+h2{
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px 2px rgb(26, 136, 225);
+}
+
+#linkRegis{
+    color: rgb(54, 114, 156);
+    text-decoration: underline;
+    text-shadow: 1px 1px 1px rgb(113, 148, 175);
+    font-size: 18px;
+}

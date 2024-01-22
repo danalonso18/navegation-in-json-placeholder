@@ -1,27 +1,10 @@
-import { FC, memo, useEffect, useState } from "react";
-import Body from "./body";
-import TH from "./th";
-import Data from "../Data";
-import { useSearch } from "../searchContext/SearchContext";
-import { ThemeProvider } from "../theme/Theme";
+import React from "react";
+import Body from "./Body";
+import TH from "./Th";
+import { useSearchContext } from "../../context/SearchContext/SearchContext";
 
-interface iPost {
-  userId: number;
-  id: number;
-  title: string;
-}
-
-const Table: FC<{}> = () => {
-  const { search } = useSearch();
-  const [posts, setPosts] = useState<iPost[]>([]);
-
-  const handleData = (data: iPost[]) => {
-    setPosts(data);
-  };
-
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
-  );
+const Table: React.FC<{}> = () => {
+  const { filteredPosts } = useSearchContext();
 
   return (
       <div id="table">
@@ -30,7 +13,6 @@ const Table: FC<{}> = () => {
             <TH />
           </thead>
           <tbody>
-            <Data onData={handleData} />
             <Body posts={filteredPosts} />
           </tbody>
         </table>
@@ -38,4 +20,4 @@ const Table: FC<{}> = () => {
   );
 };
 
-export default memo(Table);
+export default Table;

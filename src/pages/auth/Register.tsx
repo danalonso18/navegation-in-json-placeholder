@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuth } from '../components/context/AuthContext';
-import "../styles/register.css"
-
-interface iUser {
-    username: string;
-    password: string;
-}
+import { useAuthContext } from '../../context/AuthContext/AuthContext';
+import "../../styles/register.css"
+import { iUser } from '../../interfaces/AuthContext.interface';
 
 const RegistrationForm: React.FC = () => {
-    const { login } = useAuth();
+    const { login } = useAuthContext();
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [users, setUsers] = useState<iUser[]>([]);
@@ -37,7 +33,7 @@ const RegistrationForm: React.FC = () => {
             setUsername('');
             setPassword('');
 
-            navigate('/');
+            navigate('/login');
         }
     };
 
@@ -49,7 +45,7 @@ const RegistrationForm: React.FC = () => {
                     <div className="formContainer">
                         <div className="username">
                             <label> Usuario:</label><br />
-                            <input type="text" id='username'  placeholder='Usuario' value={username} onChange={(e) => setUsername(e.target.value)} />
+                            <input type="text" id='username' placeholder='Usuario' value={username} onChange={(e) => setUsername(e.target.value)} />
                             <br />
                         </div>
                         <div className="password">
@@ -59,21 +55,21 @@ const RegistrationForm: React.FC = () => {
                         </div>
 
                         <div className="btnRegister">
-                            <button type="button" onClick={handleRegister}>Registrar</button>
+                            <button id='btnRegister' onClick={handleRegister}>Registrar</button>
                         </div>
                     </div>
                 </form>
-                <div>
-                    <h3>Usuarios registrados:</h3>
-                    <ul>
-                        {users.map((user, index) => (
-                            <li key={index}>
-                                {user.username} - {user.password}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <p className='home'><Link to="/">Volver al Login</Link></p>
+                <p className='home'><Link id='linkLogin' to="/login">Volver al Login</Link></p>
+            </div>
+            <div>
+                <h3>Usuarios registrados:</h3>
+                <ul>
+                    {users.map((user, index) => (
+                        <li key={index}>
+                            {user.username} - {user.password}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     );

@@ -1,6 +1,6 @@
-import { FC, memo } from "react";
+import React from "react";
 
-const TH: FC<{}> = () => {
+const TH: React.FC<{}> = () => {
   return (
     <tr id="titles">
       <th>ID</th>
@@ -10,4 +10,4 @@ const TH: FC<{}> = () => {
   );
 };
 
-export default memo(TH);
+export default TH;
