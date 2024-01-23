@@ -3,14 +3,12 @@ import { SearchContext } from "./SearchContext";
 import { useDispatch } from "react-redux";
 import getPostApi from "../../api/posts";
 import { iAdmin, iChildren, iPostApi } from "../../interfaces/interfaces";
-import { setSearchResults } from "../../redux/Action/searchActions";
+import { setSearchResultsPost,setSearchResultsAdm } from "../../redux/Action/searchActions";
 import { useAdminContext } from "../adminContext/AdminContext";
 
 export const SearchProvider: React.FC<iChildren> = ({ children }) => {
   const [search, setSearch] = useState("");
   const [posts, setPosts] = useState<iPostApi[]>([]);
-  const [filteredPost, setFilteredPost] = useState<iPostApi[]>([]);
-  const [filteredAdmin, setFilteredAdmin] = useState<iAdmin[]>([]);
   const [filtered, setFiltered] = useState<iPostApi[] | iAdmin[]>([]);
   const dispatch = useDispatch();
   const { admins } = useAdminContext();
@@ -34,7 +32,7 @@ export const SearchProvider: React.FC<iChildren> = ({ children }) => {
               setFiltered(newFilteredPosts)
               console.log('filteredPosts', newFilteredPosts.length)
 
-              dispatch(setSearchResults(newFilteredPosts.length,0));
+              dispatch(setSearchResultsPost(newFilteredPosts.length));
           }, [search, posts])
   }
   if(admins!){
@@ -45,7 +43,7 @@ export const SearchProvider: React.FC<iChildren> = ({ children }) => {
               setFiltered(newFilteredAdmin)
               console.log('filteredAdmin', newFilteredAdmin.length)
 
-              dispatch(setSearchResults(newFilteredAdmin.length,0));
+              dispatch(setSearchResultsAdm(newFilteredAdmin.length));
           }, [search,admins])
   }
 
@@ -53,7 +51,6 @@ export const SearchProvider: React.FC<iChildren> = ({ children }) => {
     <SearchContext.Provider
       value={{ search, setSearch, filtered }}
     >
-      {/* <SearchContext.Provider value={{ search, setSearch, filtered }}> */}
       {children}
     </SearchContext.Provider>
   );

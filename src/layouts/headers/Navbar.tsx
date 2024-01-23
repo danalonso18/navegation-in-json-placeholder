@@ -4,12 +4,16 @@ import "../../styles/navbar.css";
 import ToggleButton from "../../components/Button/Button";
 import { useSearch } from "../../context/searchContext/SearchContext";
 import { useAuthContext } from "../../context/authContext/AuthContext";
+interface iParam{
+  searchs:number;
+}
 
-const Navbar: React.FC = () => {
+const Navbar: React.FC<iParam> = ({searchs}) => {
   const { search, setSearch } = useSearch();
   const {logout} = useAuthContext();
   const navigate = useNavigate();
-  const searchResults = useSelector((state: any) => state.search.searchResults)
+  const searchResultsPost = useSelector((state: any) => state.search.searchResultsPost)
+  const searchResultsAdm = useSelector((state: any) => state.search.searchResultsAdm)
 
   const handleLogout = () => {
     logout()
@@ -20,6 +24,13 @@ const Navbar: React.FC = () => {
     setSearch(e.target.value);
     console.log("Search", search);
   };
+
+ const searchResul = ()=>{
+  if('home'){
+    return <div id="notifications">{searchResultsPost > 0 && <p id="pNotifications">{searchResultsPost}</p>}</div>
+  }
+  return <div id="notifications">{searchResultsAdm > 0 && <p id="pNotifications">{searchResultsAdm}</p>}</div>
+ }
 
   return (
     <header id="navbar">
@@ -34,7 +45,7 @@ const Navbar: React.FC = () => {
               value={search}
               onChange={handleSearchChange}
             />
-            <div id="notifications">{searchResults > 0 && <p id="pNotifications">{searchResults}</p>}</div>
+            <div id="notifications">{searchs > 0 && <p id="pNotifications">{searchs}</p>}</div>
           </form>
         </div>
         <ul>
