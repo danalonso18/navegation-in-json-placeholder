@@ -14,13 +14,15 @@ const Admin = () => {
     { field: "userName", header: "Nombre de Usuario" },
     { field: "rol", header: "Rol" },
   ];
+
+  const hearSort =['name','rol']
   const [oriAdm, setOriAdm] = useState<iAdmin[]>([]);
   const [sorts, setSorts] = useState<any[]>([]);
   const [onBttn, setOnBttn] = useState<number>(0);
   const { admins } = useAdminContext();
-  const { search } = useSearch();
+  const { search} = useSearch();
 
-  const filteredPosts = oriAdm.filter((adm) =>
+  const filteredAdmin = oriAdm.filter((adm) =>
     adm.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
   );
   useEffect(() => {
@@ -32,12 +34,12 @@ const Admin = () => {
   }, [oriAdm]);
 
   useEffect(() => {
-    setSorts(filteredPosts);
+    setSorts(filteredAdmin);
   }, [search]);
 
-  const sortTable = (orderBy:string) => {
+  const sortTable = (orderBy: string) => {
     if (onBttn == 0) {
-      const ori = [...filteredPosts];
+      const ori = [...filteredAdmin];
       setSorts(ori);
       setOnBttn(1);
     } else {
@@ -77,6 +79,7 @@ const Admin = () => {
         data={sorts}
         columns={columns}
         sortTable={sortTable}
+        headSort={hearSort}
       />
     </main>
   );

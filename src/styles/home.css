@@ -1,5 +1,5 @@
 
-table, tr, td, th {
+table, tr, td{
     border-radius: 5px;
     padding: 5px;
     border-spacing: 6px;
@@ -55,6 +55,10 @@ tbody{
 }
 
 #headerBtton{
+    border-radius: 2px;
+}
+
+#head{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -63,9 +67,5 @@ tbody{
     box-shadow: none;
     text-transform: uppercase;
     border-radius: 2px;
-}
-
-#head{
-    display: flex;
     align-items: center;
 }

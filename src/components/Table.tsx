@@ -2,10 +2,33 @@ import { FC, useState } from "react";
 import "../styles/home.css";
 import { iPropsTable } from "../interfaces/interfaces";
 
-const Table: FC<iPropsTable> = ({ data, columns, sortTable }) => {
+const Table: FC<iPropsTable> = ({
+  data,
+  columns,
+  sortTable,
+  headSort,
+}) => {
   const [onBttn, setOnBttn] = useState<number>(0);
   const [textBtton, setTextBtton] = useState("-");
 
+  const handleBtton = (field: string) => {
+    if (onBttn == 0) {
+      setTextBtton("↥");
+      sortTable(field);
+      setOnBttn(1);
+    } else {
+      if (onBttn == 1) {
+        setTextBtton("↧");
+        sortTable(field);
+        setOnBttn(2);
+      }
+      if (onBttn == 2) {
+        setTextBtton("-");
+        sortTable(field);
+        setOnBttn(0);
+      }
+    }
+  };
 
   return (
     <div id="table">
@@ -13,32 +36,27 @@ const Table: FC<iPropsTable> = ({ data, columns, sortTable }) => {
         <thead>
           <tr>
             {columns.map((head, index) => {
-              return (
-                <th id="heads" key={index}>
-                  {head.header}
+              if (headSort.includes(head.field)) {
+                return (
+                  <th key={index}>
+                    <div id="head" key={index}>
+                      {head.header}
+                    </div>
                     <button
                       id="bttnTable"
-                      onClick={() => {
-                        if (onBttn == 0) {
-                          setTextBtton("↥");
-                          sortTable(head.field);
-                          setOnBttn(1);
-                        } else {
-                          if (onBttn == 1) {
-                            setTextBtton("↧");
-                            sortTable(head.field);
-                            setOnBttn(2);
-                          }
-                          if (onBttn == 2) {
-                            setTextBtton("-");
-                            sortTable(head.field);
-                            setOnBttn(0);
-                          }
-                        }
+                      onClick={(headField) => {
+                        headField = head.field;
+                        handleBtton(headField.toString());
                       }}
                     >
                       {textBtton}
                     </button>
+                  </th>
+                );
+              }
+              return (
+                <th id="heads" key={index}>
+                  {head.header}
                 </th>
               );
             })}

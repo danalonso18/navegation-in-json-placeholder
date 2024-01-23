@@ -1,12 +1,8 @@
-import React, { useContext, createContext} from "react";
+import { useContext, createContext} from "react";
+import { iSearchContextProps } from "../../interfaces/interfaces";
 
 
-type SearchContextProps = {
-    search: string;
-    setSearch: React.Dispatch<React.SetStateAction<string>>;
-};
-
-export const SearchContext = createContext<SearchContextProps | undefined>(undefined);
+export const SearchContext = createContext<iSearchContextProps | undefined>(undefined);
 
 export const useSearch = () => {
     const context = useContext(SearchContext);

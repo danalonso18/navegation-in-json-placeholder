@@ -12,9 +12,12 @@ const Home: React.FC = () => {
     { field: "userId", header: "user Id" },
     { field: "title", header: "title" },
   ];
+
+  const hearsort=['userId','title']
   const [posts, setPosts] = useState<iPostTable[]>([]);
   const [sorts, setSorts] = useState<any[]>([]);
   const [onBttn, setOnBttn] = useState<number>(0);
+  
   const { search } = useSearch();
 
   const filteredPosts = posts.filter((post) =>
@@ -46,7 +49,7 @@ const Home: React.FC = () => {
     if (onBttn == 0) {
       const ori = [...filteredPosts];
       setSorts(ori);
-      setOnBttn(1)
+      setOnBttn(1);
     } else {
       if (onBttn == 1) {
         const sortsAsc = sorts.sort((a, b) => {
@@ -59,7 +62,7 @@ const Home: React.FC = () => {
           return 0;
         });
         setSorts(sortsAsc);
-        setOnBttn(2)
+        setOnBttn(2);
       }
       if (onBttn == 2) {
         const sortsDes = sorts.sort((a, b) => {
@@ -72,7 +75,7 @@ const Home: React.FC = () => {
           return 0;
         });
         setSorts(sortsDes);
-        setOnBttn(0)
+        setOnBttn(0);
       }
     }
   };
@@ -83,6 +86,7 @@ const Home: React.FC = () => {
         data={sorts}
         columns={colums}
         sortTable={sortTable}
+        headSort={hearsort}
       />
     </div>
   );

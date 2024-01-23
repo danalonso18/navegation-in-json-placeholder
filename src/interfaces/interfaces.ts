@@ -57,9 +57,18 @@ export interface iPropsTable {
     data: any[];
     columns: any[];
     sortTable: (orderBy:string)=>void
+    headSort:Array<string>;
 }
 
 export interface iAdminContext {
     admins:iAdmin[];
     onSubmit:(data:FormValues)=>void
 }
+
+export interface iSearchContextProps {
+    search: string;
+    setSearch: React.Dispatch<React.SetStateAction<string>>;
+    filtered: iPostApi[]|iAdmin[];
+    // filteredAdmin:iAdmin[];
+    // filteredPost:iPostApi[];
+};

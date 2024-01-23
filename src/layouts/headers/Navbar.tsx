@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, useNavigate} from "react-router-dom";
 import "../../styles/navbar.css";
 import ToggleButton from "../../components/Button/Button";
@@ -9,6 +9,7 @@ const Navbar: React.FC = () => {
   const { search, setSearch } = useSearch();
   const {logout} = useAuthContext();
   const navigate = useNavigate();
+  const searchResults = useSelector((state: any) => state.search.searchResults)
 
   const handleLogout = () => {
     logout()
@@ -33,6 +34,7 @@ const Navbar: React.FC = () => {
               value={search}
               onChange={handleSearchChange}
             />
+            <div id="notifications">{searchResults > 0 && <p id="pNotifications">{searchResults}</p>}</div>
           </form>
         </div>
         <ul>
